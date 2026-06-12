@@ -1,0 +1,6 @@
+# Ensure binary assets are never passed through text/EOL filters.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.xcassets/** binary
