@@ -1,0 +1,304 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A000000000000000000B001 /* LSEC_CRMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000000000000000000F001 /* LSEC_CRMApp.swift */; };
+		1A000000000000000000B002 /* AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000000000000000000F002 /* AppStore.swift */; };
+		1A000000000000000000B003 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000000000000000000F003 /* Models.swift */; };
+		1A000000000000000000B004 /* NeonClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000000000000000000F004 /* NeonClient.swift */; };
+		1A000000000000000000B005 /* CRMRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000000000000000000F005 /* CRMRepository.swift */; };
+		1A000000000000000000B006 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000000000000000000F006 /* Formatters.swift */; };
+		1A000000000000000000B007 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000000000000000000F007 /* RootView.swift */; };
+		1A000000000000000000B008 /* PipelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000000000000000000F008 /* PipelineView.swift */; };
+		1A000000000000000000B009 /* LeadEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000000000000000000F009 /* LeadEditView.swift */; };
+		1A000000000000000000B00A /* LeadDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000000000000000000F00A /* LeadDetailView.swift */; };
+		1A000000000000000000B00B /* CustomerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000000000000000000F00B /* CustomerListView.swift */; };
+		1A000000000000000000B00C /* CustomerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000000000000000000F00C /* CustomerDetailView.swift */; };
+		1A000000000000000000B00D /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000000000000000000F00D /* Components.swift */; };
+		1A000000000000000000B00E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A000000000000000000F00E /* SettingsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1A000000000000000000A004 /* LSEC_CRM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LSEC_CRM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A000000000000000000F001 /* LSEC_CRMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSEC_CRMApp.swift; sourceTree = "<group>"; };
+		1A000000000000000000F002 /* AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore.swift; sourceTree = "<group>"; };
+		1A000000000000000000F003 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		1A000000000000000000F004 /* NeonClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonClient.swift; sourceTree = "<group>"; };
+		1A000000000000000000F005 /* CRMRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRMRepository.swift; sourceTree = "<group>"; };
+		1A000000000000000000F006 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
+		1A000000000000000000F007 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		1A000000000000000000F008 /* PipelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineView.swift; sourceTree = "<group>"; };
+		1A000000000000000000F009 /* LeadEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadEditView.swift; sourceTree = "<group>"; };
+		1A000000000000000000F00A /* LeadDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadDetailView.swift; sourceTree = "<group>"; };
+		1A000000000000000000F00B /* CustomerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerListView.swift; sourceTree = "<group>"; };
+		1A000000000000000000F00C /* CustomerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDetailView.swift; sourceTree = "<group>"; };
+		1A000000000000000000F00D /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		1A000000000000000000F00E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A0000000000000000000008 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A0000000000000000000002 = {
+			isa = PBXGroup;
+			children = (
+				1A0000000000000000000010 /* LSEC_CRM */,
+				1A0000000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1A0000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A000000000000000000A004 /* LSEC_CRM.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A0000000000000000000010 /* LSEC_CRM */ = {
+			isa = PBXGroup;
+			children = (
+				1A000000000000000000F001 /* LSEC_CRMApp.swift */,
+				1A000000000000000000F007 /* RootView.swift */,
+				1A000000000000000000F002 /* AppStore.swift */,
+				1A000000000000000000F003 /* Models.swift */,
+				1A000000000000000000F004 /* NeonClient.swift */,
+				1A000000000000000000F005 /* CRMRepository.swift */,
+				1A000000000000000000F006 /* Formatters.swift */,
+				1A000000000000000000F00D /* Components.swift */,
+				1A000000000000000000F008 /* PipelineView.swift */,
+				1A000000000000000000F009 /* LeadEditView.swift */,
+				1A000000000000000000F00A /* LeadDetailView.swift */,
+				1A000000000000000000F00B /* CustomerListView.swift */,
+				1A000000000000000000F00C /* CustomerDetailView.swift */,
+				1A000000000000000000F00E /* SettingsView.swift */,
+			);
+			path = LSEC_CRM;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A0000000000000000000006 /* LSEC_CRM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A000000000000000000000B /* Build configuration list for PBXNativeTarget "LSEC_CRM" */;
+			buildPhases = (
+				1A0000000000000000000007 /* Sources */,
+				1A0000000000000000000008 /* Frameworks */,
+				1A0000000000000000000009 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LSEC_CRM;
+			productName = LSEC_CRM;
+			productReference = 1A000000000000000000A004 /* LSEC_CRM.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A0000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					1A0000000000000000000006 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 1A000000000000000000000A /* Build configuration list for PBXProject "LSEC_CRM" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A0000000000000000000002;
+			productRefGroup = 1A0000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A0000000000000000000006 /* LSEC_CRM */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A0000000000000000000009 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A0000000000000000000007 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A000000000000000000B001 /* LSEC_CRMApp.swift in Sources */,
+				1A000000000000000000B007 /* RootView.swift in Sources */,
+				1A000000000000000000B002 /* AppStore.swift in Sources */,
+				1A000000000000000000B003 /* Models.swift in Sources */,
+				1A000000000000000000B004 /* NeonClient.swift in Sources */,
+				1A000000000000000000B005 /* CRMRepository.swift in Sources */,
+				1A000000000000000000B006 /* Formatters.swift in Sources */,
+				1A000000000000000000B00D /* Components.swift in Sources */,
+				1A000000000000000000B008 /* PipelineView.swift in Sources */,
+				1A000000000000000000B009 /* LeadEditView.swift in Sources */,
+				1A000000000000000000B00A /* LeadDetailView.swift in Sources */,
+				1A000000000000000000B00B /* CustomerListView.swift in Sources */,
+				1A000000000000000000B00C /* CustomerDetailView.swift in Sources */,
+				1A000000000000000000B00E /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1A000000000000000000000C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1A000000000000000000000D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1A000000000000000000000E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lsec.crm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1A000000000000000000000F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lsec.crm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A000000000000000000000A /* Build configuration list for PBXProject "LSEC_CRM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A000000000000000000000C /* Debug */,
+				1A000000000000000000000D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A000000000000000000000B /* Build configuration list for PBXNativeTarget "LSEC_CRM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A000000000000000000000E /* Debug */,
+				1A000000000000000000000F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1A0000000000000000000001 /* Project object */;
+}
