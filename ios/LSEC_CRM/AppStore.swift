@@ -22,8 +22,9 @@ struct Banner: Identifiable, Equatable {
 
 @MainActor
 final class AppStore: ObservableObject {
-    // Configuration (persisted)
-    @AppStorage("apiBaseURL") var baseURL: String = ""
+    // Configuration
+    /// Fixed production API root (the same origin + /api the web app uses).
+    let baseURL = "https://lsecsatx.com/api"
     @AppStorage("authToken") var token: String = ""
 
     // Data
@@ -41,7 +42,6 @@ final class AppStore: ObservableObject {
     @Published var banner: Banner?
 
     var isConfigured: Bool {
-        !baseURL.trimmingCharacters(in: .whitespaces).isEmpty &&
         !token.trimmingCharacters(in: .whitespaces).isEmpty
     }
 

@@ -33,17 +33,14 @@ the app.
 
 1. Open `LSEC_CRM.xcodeproj` in Xcode 15+ and run on an iOS 16+ simulator or
    device.
-2. On first launch you land on **Settings**. Provide:
-   - **API Base URL** — your site origin plus `/api`, e.g.
-     `https://yoursite.com/api` (the same origin the web app's `api` object
-     uses).
-   - **Authentication** — enter your email/password, just like the web app's
-     login page. The app POSTs `{email, password}` to `<origin>/auth/login`
-     (derived automatically from the API Base URL — the same endpoint the web
-     app uses) and reads the `token` field from the response.
+2. On first launch you land on **Settings**. The API base URL is fixed to the
+   production site (`https://lsecsatx.com/api`), so just enter your
+   email/password — the same credentials and login page the web app uses. The
+   app POSTs `{email, password}` to `https://lsecsatx.com/auth/login` and reads
+   the `token` field from the response.
 3. Tap **Sign In & Connect**. The app loads `/batch` and renders the pipeline.
 
-The base URL and token persist between launches. Use **Sign Out** in Settings
+The token persists between launches. Use **Sign Out** in Settings
 to clear the token.
 
 ## What's implemented (matches `crm.html`)

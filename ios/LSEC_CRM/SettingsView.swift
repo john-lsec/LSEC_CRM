@@ -2,9 +2,9 @@
 //  SettingsView.swift
 //  LSEC_CRM
 //
-//  Connection + authentication. The app talks to the same backend API as the
-//  web app, so it needs the API base URL and credentials. You sign in with the
-//  same email/password and login endpoint the web app uses.
+//  Authentication. The app talks to the same backend API as the web app at a
+//  fixed base URL (see AppStore.baseURL); you sign in with the same
+//  email/password and login endpoint the web app uses.
 //
 
 import SwiftUI
@@ -12,7 +12,6 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var store: AppStore
 
-    @State private var baseDraft = ""
     @State private var email = ""
     @State private var password = ""
     @State private var working = false
@@ -20,19 +19,6 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section {
-                    LabeledField("API Base URL") {
-                        TextField("https://yoursite.com/api", text: $baseDraft)
-                            .textInputAutocapitalization(.never)
-                            .autocorrectionDisabled()
-                            .keyboardType(.URL)
-                    }
-                } header: {
-                    Text("Connection")
-                } footer: {
-                    Text("Points at the same REST API the web app uses (api.js). Usually your site origin followed by /api.")
-                }
-
                 Section {
                     LabeledField("Email") {
                         TextField("you@company.com", text: $email)
@@ -46,7 +32,7 @@ struct SettingsView: View {
                 } header: {
                     Text("Authentication")
                 } footer: {
-                    Text("Signs in against \(loginEndpoint(from: baseDraft)) with your email and password — the same endpoint the web app uses.")
+                    Text("Signs in against \(loginEndpoint(from: store.baseURL)) with your email and password — the same endpoint the web app uses.")
                 }
 
                 Section {
@@ -80,19 +66,12 @@ struct SettingsView: View {
                 }
             }
             .navigationTitle("Settings")
-            .onAppear {
-                baseDraft = store.baseURL
-            }
         }
     }
 
     private func connect() async {
         working = true
         defer { working = false }
-
-        let base = baseDraft.trimmingCharacters(in: .whitespaces)
-        guard !base.isEmpty else { store.show("Enter the API Base URL", isError: true); return }
-        store.baseURL = base
 
         do {
             store.token = try await signIn()
