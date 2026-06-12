@@ -41,10 +41,10 @@ the app.
      - **Paste Token**: paste the Bearer JWT the web app stores after login.
        In the web app you can read it from the browser console / local
        storage (it's the token sent as `Authorization: Bearer …`).
-     - **Sign In**: enter your auth endpoint URL plus email/password. The app
-       POSTs `{email, password}` and reads the `token` field from the
-       response. (The login route is a separate function from `api.js`, so its
-       URL is configurable here.)
+     - **Sign In**: enter your email/password, just like the web app's login
+       page. The app POSTs `{email, password}` to `<origin>/auth/login`
+       (derived automatically from the API Base URL — the same endpoint the
+       web app uses) and reads the `token` field from the response.
 3. Tap **Save & Connect**. The app loads `/batch` and renders the pipeline.
 
 The base URL and token persist between launches. Use **Sign Out** in Settings

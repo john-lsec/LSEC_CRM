@@ -13,7 +13,6 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var store: AppStore
 
-    @AppStorage("loginURL") private var loginURL: String = ""
     @State private var authMode: AuthMode = .token
     @State private var tokenDraft = ""
     @State private var baseDraft = ""
@@ -43,7 +42,7 @@ struct SettingsView: View {
                     Text("Points at the same REST API the web app uses (api.js). Usually your site origin followed by /api.")
                 }
 
-                Section("Authentication") {
+                Section {
                     Picker("Method", selection: $authMode) {
                         ForEach(AuthMode.allCases) { Text($0.rawValue).tag($0) }
                     }
@@ -58,12 +57,6 @@ struct SettingsView: View {
                                 .font(.system(.footnote, design: .monospaced))
                         }
                     } else {
-                        LabeledField("Login Endpoint URL") {
-                            TextField("https://yoursite.com/.netlify/functions/login", text: $loginURL)
-                                .textInputAutocapitalization(.never)
-                                .autocorrectionDisabled()
-                                .keyboardType(.URL)
-                        }
                         LabeledField("Email") {
                             TextField("you@company.com", text: $email)
                                 .textInputAutocapitalization(.never)
@@ -73,6 +66,12 @@ struct SettingsView: View {
                         LabeledField("Password") {
                             SecureField("••••••••", text: $password)
                         }
+                    }
+                } header: {
+                    Text("Authentication")
+                } footer: {
+                    if authMode == .signIn {
+                        Text("Signs in against \(loginEndpoint(from: baseDraft)) with your email and password — the same endpoint the web app uses.")
                     }
                 }
 
@@ -143,9 +142,27 @@ struct SettingsView: View {
         if store.hasLoaded { store.show("Connected") }
     }
 
+    /// Derives the login endpoint from the API Base URL the same way the web
+    /// app does: the web app's API_BASE is the site origin and it POSTs to
+    /// `/auth/login` (a Netlify redirect to the `auth` function). The iOS base
+    /// URL is the origin followed by `/api`, so strip that suffix to recover
+    /// the origin and append `/auth/login`.
+    private func loginEndpoint(from base: String) -> String {
+        var origin = base.trimmingCharacters(in: .whitespaces)
+        while origin.hasSuffix("/") { origin.removeLast() }
+        for suffix in ["/api", "/.netlify/functions"] {
+            if origin.hasSuffix(suffix) {
+                origin.removeLast(suffix.count)
+                break
+            }
+        }
+        while origin.hasSuffix("/") { origin.removeLast() }
+        return origin + "/auth/login"
+    }
+
     private func signIn() async throws -> String {
-        let urlStr = loginURL.trimmingCharacters(in: .whitespaces)
-        guard let url = URL(string: urlStr) else { throw APIError(message: "Enter a valid login URL") }
+        let urlStr = loginEndpoint(from: store.baseURL)
+        guard let url = URL(string: urlStr) else { throw APIError(message: "Enter a valid API Base URL") }
         var req = URLRequest(url: url)
         req.httpMethod = "POST"
         req.setValue("application/json", forHTTPHeaderField: "Content-Type")
