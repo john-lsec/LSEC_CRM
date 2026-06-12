@@ -37,15 +37,11 @@ the app.
    - **API Base URL** — your site origin plus `/api`, e.g.
      `https://yoursite.com/api` (the same origin the web app's `api` object
      uses).
-   - **Authentication** — either:
-     - **Paste Token**: paste the Bearer JWT the web app stores after login.
-       In the web app you can read it from the browser console / local
-       storage (it's the token sent as `Authorization: Bearer …`).
-     - **Sign In**: enter your email/password, just like the web app's login
-       page. The app POSTs `{email, password}` to `<origin>/auth/login`
-       (derived automatically from the API Base URL — the same endpoint the
-       web app uses) and reads the `token` field from the response.
-3. Tap **Save & Connect**. The app loads `/batch` and renders the pipeline.
+   - **Authentication** — enter your email/password, just like the web app's
+     login page. The app POSTs `{email, password}` to `<origin>/auth/login`
+     (derived automatically from the API Base URL — the same endpoint the web
+     app uses) and reads the `token` field from the response.
+3. Tap **Sign In & Connect**. The app loads `/batch` and renders the pipeline.
 
 The base URL and token persist between launches. Use **Sign Out** in Settings
 to clear the token.
