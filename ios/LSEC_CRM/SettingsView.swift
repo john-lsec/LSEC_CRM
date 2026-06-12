@@ -3,9 +3,8 @@
 //  LSEC_CRM
 //
 //  Connection + authentication. The app talks to the same backend API as the
-//  web app, so it needs the API base URL and a Bearer JWT. You can either
-//  paste a token (copied from the web app's session) or sign in against your
-//  auth endpoint if you have one.
+//  web app, so it needs the API base URL and credentials. You sign in with the
+//  same email/password and login endpoint the web app uses.
 //
 
 import SwiftUI
@@ -13,18 +12,10 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var store: AppStore
 
-    @State private var authMode: AuthMode = .token
-    @State private var tokenDraft = ""
     @State private var baseDraft = ""
     @State private var email = ""
     @State private var password = ""
     @State private var working = false
-
-    enum AuthMode: String, CaseIterable, Identifiable {
-        case token = "Paste Token"
-        case signIn = "Sign In"
-        var id: String { rawValue }
-    }
 
     var body: some View {
         NavigationStack {
@@ -43,36 +34,19 @@ struct SettingsView: View {
                 }
 
                 Section {
-                    Picker("Method", selection: $authMode) {
-                        ForEach(AuthMode.allCases) { Text($0.rawValue).tag($0) }
+                    LabeledField("Email") {
+                        TextField("you@company.com", text: $email)
+                            .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled()
+                            .keyboardType(.emailAddress)
                     }
-                    .pickerStyle(.segmented)
-
-                    if authMode == .token {
-                        LabeledField("Bearer Token (JWT)") {
-                            TextField("eyJ...", text: $tokenDraft, axis: .vertical)
-                                .lineLimit(1...4)
-                                .textInputAutocapitalization(.never)
-                                .autocorrectionDisabled()
-                                .font(.system(.footnote, design: .monospaced))
-                        }
-                    } else {
-                        LabeledField("Email") {
-                            TextField("you@company.com", text: $email)
-                                .textInputAutocapitalization(.never)
-                                .autocorrectionDisabled()
-                                .keyboardType(.emailAddress)
-                        }
-                        LabeledField("Password") {
-                            SecureField("••••••••", text: $password)
-                        }
+                    LabeledField("Password") {
+                        SecureField("••••••••", text: $password)
                     }
                 } header: {
                     Text("Authentication")
                 } footer: {
-                    if authMode == .signIn {
-                        Text("Signs in against \(loginEndpoint(from: baseDraft)) with your email and password — the same endpoint the web app uses.")
-                    }
+                    Text("Signs in against \(loginEndpoint(from: baseDraft)) with your email and password — the same endpoint the web app uses.")
                 }
 
                 Section {
@@ -81,7 +55,7 @@ struct SettingsView: View {
                     } label: {
                         HStack {
                             if working { ProgressView().padding(.trailing, 6) }
-                            Text(authMode == .token ? "Save & Connect" : "Sign In & Connect")
+                            Text("Sign In & Connect")
                         }
                         .frame(maxWidth: .infinity)
                     }
@@ -100,7 +74,6 @@ struct SettingsView: View {
                         Button("Reload Data") { Task { await store.reload() } }
                         Button("Sign Out", role: .destructive) {
                             store.token = ""
-                            tokenDraft = ""
                             store.hasLoaded = false
                         }
                     }
@@ -109,7 +82,6 @@ struct SettingsView: View {
             .navigationTitle("Settings")
             .onAppear {
                 baseDraft = store.baseURL
-                tokenDraft = store.token
             }
         }
     }
@@ -122,19 +94,11 @@ struct SettingsView: View {
         guard !base.isEmpty else { store.show("Enter the API Base URL", isError: true); return }
         store.baseURL = base
 
-        if authMode == .token {
-            let t = tokenDraft.trimmingCharacters(in: .whitespaces)
-            guard !t.isEmpty else { store.show("Enter a token", isError: true); return }
-            store.token = t
-        } else {
-            do {
-                let t = try await signIn()
-                store.token = t
-                tokenDraft = t
-            } catch {
-                store.show(error)
-                return
-            }
+        do {
+            store.token = try await signIn()
+        } catch {
+            store.show(error)
+            return
         }
 
         store.hasLoaded = false
